@@ -17,6 +17,12 @@ class MainActivity : AppCompatActivity() {
         val userPassword : EditText = findViewById(R.id.pass_log)
         val button : Button = findViewById(R.id.button_log)
         val regLink : TextView = findViewById(R.id.no_acc)
+        val fpLink : TextView = findViewById(R.id.forgot_pass)
+
+        fpLink.setOnClickListener{
+            val intent = Intent(this, ForgotPassActivity::class.java)
+            startActivity(intent)
+        }
 
         regLink.setOnClickListener{
             val intent = Intent(this, RegActivity::class.java)

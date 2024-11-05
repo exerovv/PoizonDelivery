@@ -43,4 +43,14 @@ class DbHelper(val context : Context?) : SQLiteOpenHelper(context, "users.db", n
         db.close()
         return userExist
     }
+
+    fun checkEmail(login : String) : Boolean{
+        val query = "SELECT * FROM USER_TABLE WHERE USER_EMAIL = '$login'"
+        val db = this.readableDatabase
+        val cursor: Cursor = db.rawQuery(query, null)
+        val emailExist = cursor.moveToFirst()
+        cursor.close()
+        db.close()
+        return emailExist
+    }
 }
