@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">PoionDelivery</string>
+    <string name="regText">Создайте аккаунт!</string>
+    <string name="log_hint">E-mail</string>
+    <string name="pass_hint">Пароль</string>
+    <string name="buttonReg">Зарегистрироваться</string>
+</resources>
