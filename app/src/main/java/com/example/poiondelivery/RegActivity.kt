@@ -1,6 +1,7 @@
 package com.example.poiondelivery
 
 import android.content.Intent
+import android.media.DeniedByServerException
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -29,6 +30,15 @@ class RegActivity : AppCompatActivity(){
             val password = userPassword.text.toString().trim()
             if(login == "" || password == ""){
                 Toast.makeText(this, "Не все поля заполнены", Toast.LENGTH_SHORT).show()
+            }
+            else {
+                val user = User(1, login, password)
+                val db = DbHelper(this)
+                val success = db.addUser(user)
+
+                if(success){
+                    Toast.makeText(this, "Пользователь $login добавлен", Toast.LENGTH_LONG).show()
+                }
             }
         }
     }

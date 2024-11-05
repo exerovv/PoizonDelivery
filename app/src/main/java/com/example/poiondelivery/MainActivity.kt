@@ -29,6 +29,14 @@ class MainActivity : AppCompatActivity() {
             if(login == "" || password == ""){
                 Toast.makeText(this, "Не все поля заполнены", Toast.LENGTH_SHORT).show()
             }
+            else{
+                val db = DbHelper(this)
+                if (db.userExist(login, password))
+                    Toast.makeText(this, "Пользователь $login найден", Toast.LENGTH_LONG).show()
+                else{
+                    Toast.makeText(this, "Пользователя не существует", Toast.LENGTH_LONG).show()
+                }
+            }
         }
     }
 }
